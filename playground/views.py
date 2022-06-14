@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from store.models import Product, OrderItem
+from store.models import Product, OrderItem, Order, Customer
 
 def hello(request):
-    queryset = Product.objects.select_related('collection').all()
+    queryset = Customer.objects.annotate(is_new=True)
     
-    return render(request, 'hello.html', {'query_set': queryset})
+    return render(request, 'hello.html', {'queryset': queryset})

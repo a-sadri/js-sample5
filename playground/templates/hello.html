@@ -8,8 +8,8 @@
   </head>
   <body>
     <ul>
-      {% for q in query_set %}
-      <li>{{q.title}} - {{q.collection.title}}</li>
+      {% for q in queryset %}
+      <li>{{q.id}} {{q.customer.first_name}}</li>
       {% endfor %}
     </ul>
   </body>
